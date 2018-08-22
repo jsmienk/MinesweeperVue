@@ -142,10 +142,10 @@ export default {
                     const vm = this
                     const closure = function(adjecentCell) {
                         if (!adjecentCell.isRevealed) {
-                            // Remove the mark
+                            // If marked, remove the mark
                             if (adjecentCell.isMarked) {
                                 adjecentCell.isMarked = false
-                                this.amountOfCellsMarked--
+                                vm.amountOfCellsMarked--
                             }
                             // Reveal the tile
                             adjecentCell.isRevealed = true
@@ -156,7 +156,6 @@ export default {
                         }
                     }
                     vm.doForAdjecentCells(cell, closure)
-                    return
                 }
 
                 // Compliment on close call
@@ -183,7 +182,9 @@ export default {
                         break
                     }
                 }
+                // All bombs are marked? No more markings than bombs?
                 if (this.bombList.length == this.amountOfCellsMarked && allBombsMarked) {
+                    // Winner!
                     this.setGameWon()
                 }
             }
@@ -274,7 +275,8 @@ p {
 }
 
 #minefield {
-    margin: 6px 0 18px 0;
+    max-width: calc(100vh * .4);
+    margin: 6px auto 18px auto;
 }
 
 .row {

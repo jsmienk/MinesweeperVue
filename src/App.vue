@@ -54,7 +54,7 @@ button {
   font-family: 'M PLUS Rounded 1c', Arial, sans-serif;
   color: #333;
   padding: 8px;
-  max-width: calc(100vh * .5);
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }

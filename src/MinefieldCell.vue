@@ -60,13 +60,14 @@ export default {
 	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
 
-// Absolutely center the content in the cell
 .content {
+    // Ignore padding
     position:  absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
+    // Center content
     display: flex;
     justify-content: center;
     align-items: center;
