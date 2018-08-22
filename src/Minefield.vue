@@ -275,7 +275,7 @@ p {
 }
 
 #minefield {
-    max-width: calc(100vh * .4);
+    max-width: 50vh;
     margin: 6px auto 18px auto;
 }
 

@@ -38,7 +38,7 @@ export default {
 .button-switch {
     margin: 12px auto 0 auto;
     width: 100%;
-    max-width: calc(100vh * .4);
+    max-width: 50vh;
 }
 
 .button-switch-button {
