@@ -2,6 +2,8 @@
 
 > Classic Minesweeper implemented with Vue.js and Sass
 
+See it in action: https://jsmienk.github.io
+
 ## Build Setup
 
 ``` bash
