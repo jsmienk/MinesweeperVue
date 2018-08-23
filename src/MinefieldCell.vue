@@ -1,5 +1,5 @@
 <template>
-    <div class="cell" :class="{ revealed: isRevealed }" @click="onCellClicked" @click.right="onCellRightClicked">
+    <div class="cell" :class="{ revealed: isRevealed }" @click="onCellLeftClicked" @click.right="onCellRightClicked">
         <div class="content" v-show="isValueVisible">{{ value }}</div>
     </div>
 </template>
@@ -7,17 +7,25 @@
 <script>
 export default {
     props: {
-        cellData: Object
+        cellData: Object,
+        bombIcon: {
+            type: String,
+            default: "💣"
+        },
+        flagIcon: {
+            type: String,
+            default: "❗" 
+        }
     },
     data() {
         return {}
     },
     methods: {
-        onCellClicked() {
-            this.$emit('onCellClicked', {x: this.cellData.x, y: this.cellData.y})
+        onCellLeftClicked() {
+            this.$emit('onCellLeftClicked', {x: this.cellData.x, y: this.cellData.y})
         },
         onCellRightClicked() {
-            this.$emit('onCellFlagged', {x: this.cellData.x, y: this.cellData.y})
+            this.$emit('onCellRightClicked', {x: this.cellData.x, y: this.cellData.y})
         }
     },
     computed: {
@@ -25,13 +33,13 @@ export default {
             // Revealed can be a bomb or a number
             if (this.isRevealed) {
                 if (this.cellData.isBomb) {
-                    return "💣"
+                    return this.bombIcon
                 } else {
-                    return (this.cellData.proximityCount > 0 ? this.cellData.proximityCount : "")
+                    return this.cellData.proximityCount > 0 ? this.cellData.proximityCount : ""
                 }
             }
             // Unrevealed is marked or empty
-            return this.cellData.isMarked ? "❗" : ""
+            return this.cellData.isMarked ? this.flagIcon : ""
         },
         isValueVisible() {
             return this.isRevealed || this.cellData.isMarked

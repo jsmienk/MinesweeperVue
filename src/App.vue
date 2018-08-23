@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <minesweeper-header @onStartNewGame="startNewGame" @onFieldSizeChanged="onFieldSizeChanged"></minesweeper-header>
-    <minesweeper-field ref="minefield" :fieldSize="fieldSize" :mineModeEnabled="mineModeEnabled"></minesweeper-field>
-    <minesweeper-footer @onModeChanged="onModeChanged"></minesweeper-footer>
+    <minesweeper-header></minesweeper-header>
+    <minesweeper-game></minesweeper-game>
+    <minesweeper-footer></minesweeper-footer>
   </div>
 </template>
 
@@ -10,23 +10,7 @@
 export default {
   name: 'app',
   data() {
-    return {
-      fieldSize: 10,
-      mineModeEnabled: true
-    }
-  },
-  methods: {
-    onModeChanged(isMineMode) {
-      console.log("Mode: " + (isMineMode ? "Mine" : "Flag"))
-      this.mineModeEnabled = isMineMode
-    },
-    onFieldSizeChanged(size) {
-      console.log("Field size: " + size)
-      this.fieldSize = size
-    },
-    startNewGame() {
-      this.$refs.minefield.createField()
-    }
+    return {}
   }
 }
 </script>
