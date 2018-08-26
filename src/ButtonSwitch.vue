@@ -36,9 +36,8 @@ export default {
 
 <style lang="scss">
 .button-switch {
-    margin: 12px auto 0 auto;
-    width: 100%;
-    max-width: 50vh;
+    margin: 0 auto;
+    max-width: 400px;
 }
 
 .button-switch-button {

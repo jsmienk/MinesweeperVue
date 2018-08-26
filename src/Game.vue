@@ -1,12 +1,12 @@
 <template>
     <div id="game">
         <form class="options" @submit.prevent="prepareNewGame">
-            Size <input class="number-input" :placeholder="fieldSizeDefault" v-model.number="fieldSize" type="number" /> <button>New game</button>
+            Size <input class="number-input" :min="fieldSizeMin" :max="fieldSizeMax" :placeholder="fieldSizeDefault" v-model.number="fieldSize" type="number" /> <button>New game</button>
         </form>
         <h2 class="game-state">{{ gameStateText }}</h2>
         <p>{{ bombStateText }}</p>
         <minesweeper-field :minefield="minefield" @onCellLeftClicked="onCellClicked" @onCellRightClicked="onCellFlagged"></minesweeper-field>
-        <app-button-switch @onSelected="onModeChanged"></app-button-switch>
+        <app-button-switch id="mine-mode-switch" @onSelected="onModeChanged"></app-button-switch>
     </div>
 </template>
 
@@ -45,6 +45,8 @@ export default {
     data() {
         return {
             fieldSizeDefault: 10,
+            fieldSizeMin: 5,
+            fieldSizeMax: 50,
             fieldSize: 10,
             mineModeEnabled: true,
             minefield: [[{
@@ -303,6 +305,24 @@ function shuffle(array) {
 <style lang="scss">
 #game {
     text-align: center;
+}
+
+#minefield {
+    position: absolute;
+    top: 100px;
+    width: calc(100%-16px);
+    left: 8px;
+    right: 8px;
+    min-height: calc(100%-180px);
+    height: calc(100%-180px);
+    bottom: 50px;
+}
+
+#mine-mode-switch {
+    position: absolute;
+    bottom: 16px;
+    left: 8px;
+    right: 8px;
 }
 
 p {

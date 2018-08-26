@@ -58,6 +58,8 @@ export default {
     position: relative;
     background-color: #eee;
     font-weight: bold;
+    min-width: 24px;
+    max-width: 40px;
     border: #ddd 1px solid;
 }
 

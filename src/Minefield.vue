@@ -37,14 +37,12 @@ export default {
 
 <style lang="scss">
 #minefield {
-    max-width: 50vh;
+    overflow: auto;
     margin: 6px auto 18px auto;
 }
 
 .row {
     display: table;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 </style>

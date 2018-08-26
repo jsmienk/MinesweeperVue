@@ -37,9 +37,29 @@ button {
 #app {
   font-family: 'M PLUS Rounded 1c', Arial, sans-serif;
   color: #333;
-  padding: 8px;
+}
+
+#header, #game, #footer {
+  position: absolute;
+}
+
+#header {
+  top: 0;
   width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
+  height: 80px;
+}
+
+#game {
+  top: 80px;
+  width: 100%;
+  min-height: calc(100%-200px);
+  height: calc(100%-200px);
+  bottom: 60px;
+}
+
+#footer {
+  bottom: 0;
+  height: 44px;
+  width: 100%;
 }
 </style>
